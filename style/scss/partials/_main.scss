@@ -56,7 +56,14 @@ body {
         height: 100%;
         border-radius: 8px;
         background-color: $white;
+
+        .brand-primary {
+            color: $brand-primary;
+        }
+
     }
+
+
 
 
 }

@@ -20,7 +20,8 @@
   "homepage": "https://github.com/ShineSolar/tech-challenge#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "node-sass": "^7.0.1"
+    "node-sass": "^7.0.1",
+    "typescript": "^4.7.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
