@@ -1,17 +1,17 @@
 
 //Build and send http request.
-const url = 'https://jsonplaceholder.typicode.com/users';
-const xhr = new XMLHttpRequest();
-xhr.open("GET", url);
-xhr.send();
+const usersUrl = 'https://jsonplaceholder.typicode.com/users';
+const usersXhr = new XMLHttpRequest();
+usersXhr.open("GET", usersUrl);
+usersXhr.send();
 
 //Receive response from url
-xhr.onload = function(){
+usersXhr.onload = function(){
     //Expected 200, trusting that it is the JSON we are expecting. 
     //With more time, the next improvement would be more valitation here.
-    if(xhr.status === 200){
+    if(usersXhr.status === 200){
        
-        const httpResponse = JSON.parse(xhr.responseText); 
+        const httpResponse = JSON.parse(usersXhr.responseText); 
         const contactList = document.getElementById("contact-list");
 
         //Creates header row.
@@ -42,6 +42,6 @@ xhr.onload = function(){
 }
 
 //xhr request fail error message
-xhr.onerror = function() {
+usersXhr.onerror = function() {
     document.getElementById("contact-list").innerHTML = "Cannot contact remote server for contact list.";
 }
