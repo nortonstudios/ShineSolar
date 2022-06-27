@@ -25,13 +25,18 @@ usersXhr.onload = function(){
         //Chunks into the desired fields in spans inside a div.
         for(var i =0; i < httpResponse.length; i++){
             var contactRowDiv = document.createElement("div");
+            contactRowDiv.style = "cursor: pointer";
             contactRowDiv.id = httpResponse[i].id;
-            contactRowDiv.innerHTML = "<span>" + httpResponse[i].name + "<span>" + 
-                "<span>" + httpResponse[i].website + "<span>" + 
-                "<span>" + httpResponse[i].email + "<span>" +
+            contactRowDiv.className = "contact-row";
+            //On Click, calls build function from contactTaskHandler.js
+            contactRowDiv.addEventListener('click', function(){buildModal(this.id);});
+            //Builds out data in row.
+            contactRowDiv.innerHTML = "<span>" + httpResponse[i].name + "</span>" + 
+                "<span>" + httpResponse[i].website + "</span>" + 
+                "<span>" + httpResponse[i].email + "</span>" +
                 "<span>" + httpResponse[i].address.street + ',' +
             httpResponse[i].address.city + ',' +
-            httpResponse[i].address.zipcode + "<span>";
+            httpResponse[i].address.zipcode + "</span>";
             contactList.appendChild(contactRowDiv);
         }
     } 
@@ -41,7 +46,7 @@ usersXhr.onload = function(){
     }
 }
 
-//xhr request fail error message
+//http request fail error message
 usersXhr.onerror = function() {
     document.getElementById("contact-list").innerHTML = "Cannot contact remote server for contact list.";
 }
