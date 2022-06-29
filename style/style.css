@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  background-color: #F5F6F7;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  padding: 50px;
+  display: flex;
+}
+body section {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+}
+body section .brand-primary {
+  color: #FF6900;
+}
+
+/*# sourceMappingURL=style.css.map */

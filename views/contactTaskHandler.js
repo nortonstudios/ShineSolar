@@ -29,10 +29,15 @@ todoXhr.onerror = function() {
 //userId in http get payload. Each entry is added as a new div.
 function buildModal(rowId){
 
+    //Clear modal
+    document.getElementById("modal-content").innerHTML = "";
+
+    //Builds contect 1 row at a time. Each matching rowId from http response is appended to end.
     for(var i = 0; i < respJSON.length; i++){
             if (respJSON[i].userId == parseInt(rowId)){
                 var taskRow = document.createElement("div");
                 taskRow.innerHTML = respJSON[i].title;
+                
                 document.getElementById("modal-content").appendChild(taskRow);
             }
         }
