@@ -20,9 +20,22 @@ body section {
   height: 100%;
   border-radius: 8px;
   background-color: #FFFFFF;
+  padding: 25px;
 }
 body section .brand-primary {
   color: #FF6900;
+}
+body section .title-row {
+  padding-bottom: 10px;
+}
+body section .contact-row {
+  cursor: pointer;
+}
+body section .contact-name {
+  color: #2485E1;
+}
+body section .modal {
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */

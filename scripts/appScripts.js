@@ -8,6 +8,7 @@ usersXhr.onload = function () {
         var contactList = document.getElementById("contact-list");
         var titleRowDiv = document.createElement("div");
         titleRowDiv.id = "0";
+        titleRowDiv.className = "title-row";
         titleRowDiv.innerHTML = "<span>Name</span><span>Website</span><span>Email</span><span>Address<span>";
         contactList.appendChild(titleRowDiv);
         for (var i = 0; i < httpResponse.length; i++) {
@@ -15,7 +16,7 @@ usersXhr.onload = function () {
             contactRowDiv.id = httpResponse[i].id;
             contactRowDiv.className = "contact-row";
             contactRowDiv.addEventListener('click', function () { buildModal(this.id); });
-            contactRowDiv.innerHTML = "<span>" + httpResponse[i].name + "</span>" +
+            contactRowDiv.innerHTML = "<span class=\"contact-name\">" + httpResponse[i].name + "</span>" +
                 "<span>" + httpResponse[i].website + "</span>" +
                 "<span>" + httpResponse[i].email + "</span>" +
                 "<span>" + httpResponse[i].address.street + ',' +

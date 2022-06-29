@@ -49,6 +49,8 @@ body {
     width: 100%;
     padding: 50px;
     display: flex;
+    
+    
 
     section {
         display: flex;
@@ -56,14 +58,38 @@ body {
         height: 100%;
         border-radius: 8px;
         background-color: $white;
+        padding: 25px;
 
         .brand-primary {
+           // align-content: left;
             color: $brand-primary;
+    
         }
 
+        .title-row{
+            padding-bottom: 10px;
+
+        }
+
+        .contact-list{
+           
+    
+        }
+
+        .contact-row{
+           
+            cursor: pointer;
+
+        }
+
+        .contact-name{
+            color: $blue-primary;
+        }
+
+
+        .modal{
+            visibility: hidden;
+        }
     }
-
-
-
 
 }

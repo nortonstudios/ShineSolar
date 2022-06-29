@@ -16,6 +16,7 @@ usersXhr.onload = function(){
         //Creates header row.
         var titleRowDiv = document.createElement("div");
         titleRowDiv.id = "0";
+        titleRowDiv.className = "title-row";
         titleRowDiv.innerHTML = "<span>Name</span><span>Website</span><span>Email</span><span>Address<span>";
         //titleRowDiv.onclick();
         contactList.appendChild(titleRowDiv);
@@ -30,7 +31,7 @@ usersXhr.onload = function(){
             //On Click, calls build function from contactTaskHandler.js
             contactRowDiv.addEventListener('click', function(){buildModal(this.id);});
             //Builds out data in row.
-            contactRowDiv.innerHTML = "<span>" + httpResponse[i].name + "</span>" + 
+            contactRowDiv.innerHTML = "<span class=\"contact-name\">" + httpResponse[i].name + "</span>" + 
                 "<span>" + httpResponse[i].website + "</span>" + 
                 "<span>" + httpResponse[i].email + "</span>" +
                 "<span>" + httpResponse[i].address.street + ',' +
@@ -49,8 +50,6 @@ usersXhr.onload = function(){
 usersXhr.onerror = function() {
     document.getElementById("contact-list").innerHTML = "Cannot contact remote server for contact list.";
 }
-
-
 
 //Build and send http request for todo list items. 
 const todoUrl : string = 'https://jsonplaceholder.typicode.com/todos';
@@ -87,12 +86,15 @@ function buildModal(rowId : string ){
 
     //Builds contect 1 row at a time. Each matching rowId from http response is appended to end.
     for(var i = 0; i < respJSON.length; i++){
-            if (respJSON[i].userId == parseInt(rowId)){
-                var taskRow = document.createElement("div");
-                taskRow.innerHTML = respJSON[i].title;
-                
-                document.getElementById("modal-content").appendChild(taskRow);
-            }
+        if (respJSON[i].userId == parseInt(rowId)){
+            var taskRow = document.createElement("div");
+            taskRow.innerHTML = respJSON[i].title;
+            
+            document.getElementById("modal-content").appendChild(taskRow);
         }
+    }
+
+    //Set modal to visable
+    
     
 }
