@@ -15,9 +15,9 @@ usersXhr.onload = function(){
 
         //Creates header row.
         var titleRowDiv = document.createElement("div");
-        titleRowDiv.id = "0";
+        titleRowDiv.id = "title-row";
         titleRowDiv.className = "title-row";
-        titleRowDiv.innerHTML = "<span>Name</span><span>Website</span><span>Email</span><span>Address<span>";
+        titleRowDiv.innerHTML = "<span class=\"title-col\">Name</span><span class=\"title-col\">Website</span><span class=\"title-col\">Email</span><span class=\"title-col\">Address<span>";
         //titleRowDiv.onclick();
         contactList.appendChild(titleRowDiv);
         
@@ -29,14 +29,14 @@ usersXhr.onload = function(){
             contactRowDiv.id = httpResponse[i].id;
             contactRowDiv.className = "contact-row";
             //On Click, calls build function from contactTaskHandler.js
-            contactRowDiv.addEventListener('click', function(){buildModal(this.id);});
+            contactRowDiv.addEventListener('click', function(){buildModal(this.id, respJSON);});
             //Builds out data in row.
-            contactRowDiv.innerHTML = "<span class=\"contact-name\">" + httpResponse[i].name + "</span>" + 
-                "<span>" + httpResponse[i].website + "</span>" + 
-                "<span>" + httpResponse[i].email + "</span>" +
-                "<span>" + httpResponse[i].address.street + ',' +
+            contactRowDiv.innerHTML = "<div id=\"contact-name\" class=\"contact-col\">" + httpResponse[i].name + "</div>" + 
+                "<div class=\"contact-col\">" + httpResponse[i].website + "</div>" + 
+                "<div class=\"contact-col\">" + httpResponse[i].email + "</div>" +
+                "<div class=\"contact-col\">" + httpResponse[i].address.street + ',' +
             httpResponse[i].address.city + ',' +
-            httpResponse[i].address.zipcode + "</span>";
+            httpResponse[i].address.zipcode + "</div>";
             contactList.appendChild(contactRowDiv);
         }
     } 
@@ -79,7 +79,7 @@ todoXhr.onerror = function() {
 
 //Builds list of tasks. Passed id from clicked element matched against 
 //userId in http get payload. Each entry is added as a new div.
-function buildModal(rowId : string ){
+function buildModal(rowId : string, respJSON : any ){
 
     //Clear modal
     document.getElementById("modal-content").innerHTML = "";
